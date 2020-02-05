@@ -1,10 +1,19 @@
 <h3>Cart</h3>
 
+<div *ngIf="getItems().length; then populatedCart; else emptyCart"></div>
+
 <p>
   <a routerLink="/shipping">Shipping Prices</a>
 </p>
 
-<div class="cart-item" *ngFor="let item of getItems()">
-  <span>{{ item.name }}</span>
-  <span>{{ item.price | currency }}</span>
-</div>
+
+<ng-template #populatedCart>
+  <div class="cart-item" *ngFor="let item of getItems()">
+    <span>{{ item.name }}</span>
+    <span>{{ item.price | currency }}</span>
+  </div>
+</ng-template>
+
+<ng-template #emptyCart>
+  Your cart is empty.
+</ng-template>
