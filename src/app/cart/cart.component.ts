@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 
 import { CartService } from '../cart.service';
@@ -8,7 +8,7 @@ import { CartService } from '../cart.service';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
-export class CartComponent implements OnInit {
+export class CartComponent {
   checkoutForm;
 
   constructor(
@@ -20,8 +20,6 @@ export class CartComponent implements OnInit {
       address: '',
     });
   }
-
-  ngOnInit() { }
 
   getItems() {
     return this.cartService.getItems();
